@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./Modal.jsx";
+import Modal from "./modal.jsx";
 
 const CreateListModal = ({ isOpen, onClose, onSave }) => {
   const [listName, setlistName] = useState("");
