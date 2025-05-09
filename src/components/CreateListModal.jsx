@@ -10,7 +10,10 @@ const CreateListModal = ({ isOpen, onClose, onSave }) => {
   const [totalCost, setTotalCost] = useState("");
 
   const addItem = () => {
-    setItems([...items, { name: "", quantity: "", price: "" }]);
+    setItems([
+      ...items,
+      { id: items.length + 1, name: "", quantity: "", price: "" },
+    ]);
   };
 
   const removeItem = (id) => {
@@ -22,12 +25,13 @@ const CreateListModal = ({ isOpen, onClose, onSave }) => {
     setItems(newItems);
   };
 
-  const handleSumbit = () => {
+  const handleSubmit = () => {
     if (!listName.trim()) return;
-    onSave({ listName });
+    onSave({ name: listName, currency, items, totalCost });
 
     onClose();
   };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <h2 className="text-lg font-semibold mb-3">Create new list</h2>
@@ -98,7 +102,9 @@ const CreateListModal = ({ isOpen, onClose, onSave }) => {
                 placeholder="How many?"
                 className="border p-2 w-1/2"
                 value={item.quantity}
-                onChange={(e) => updateItem(index, "quantity", e.target.value)}
+                onChange={(e) =>
+                  handleInputChange(index, "quantity", e.target.value)
+                }
               />
             </div>
             <div>
@@ -146,7 +152,7 @@ const CreateListModal = ({ isOpen, onClose, onSave }) => {
             <img src="/Frame.png" alt="frame" className="w-[30px] " />
           </button>
           <div>
-            <h3>N0.00</h3>
+            <h3>{totalCost || "0.00"}</h3>
             <input
               type="text"
               placeholder="Total cost"
@@ -159,7 +165,7 @@ const CreateListModal = ({ isOpen, onClose, onSave }) => {
         <div className="flex gap-2 ml-16  ">
           <button
             className=" bg-gray-300 py-2 rounded-lg p-2 "
-            onClick={handleSumbit}
+            onClick={handleSubmit}
           >
             <img src="/save.png" alt="save" className="w-12" />
             <span className="hidden lg:block text-sm">Save</span>

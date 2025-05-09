@@ -119,7 +119,7 @@ const Dashboard = () => {
           </h3>
         </div>
         <div className="text-right text-sm lg:text-base lg:mr-4">
-          <p className="font-semibold text-gray-400 lg:mr-6">Lemonade George</p>
+          <p className="font-semibold text-gray-400 lg:mr-4">Lemonade George</p>
           <p className="text-gray-400 text-sm lg:text-xs">
             lemonade.george@email.com
           </p>
@@ -138,8 +138,9 @@ const Dashboard = () => {
             <h3 className="font-semibold text-gray-400">
               Hello, <span className="text-black">Lemonade 👋</span>
             </h3>
-            <p className="text-gray-400 text-[13px] lg:text-xs ">
-              Plan your purchases with ease. Start adding your items below!
+            <p className="text-gray-400 text-[13px] lg:text-xs  ">
+              Plan your purchases with ease. Start adding your items below! lets
+              have the complewt control of your finances
             </p>
           </div>
         </div>
@@ -157,8 +158,8 @@ const Dashboard = () => {
             />
           </div>
           <p className="text-gray-500 text-sm  rounded-lg lg:rounded-none lg:rounded-r-lg lg:w-96 w-7/12 lg:text-base bg-gray-200 border lg:pt-2  p-1">
-            You have created {lists.length}
-            budget {lists.length === 1 ? "list" : "lists"}
+            You have created {lists.length}- budget{" "}
+            {lists.length === 1 ? "list" : "lists"}
           </p>
         </div>
 
@@ -197,7 +198,7 @@ const Dashboard = () => {
       </div>
 
       {lists.length > 0 && (
-        <div className="flex flex-col lg:flex-row gap-4 lg:mt-48 justify-center items-center  whitespace-nowrap">
+        <div className="flex flex-col lg:flex-row gap-4 lg:mt-30 justify-center items-center  whitespace-nowrap">
           <button
             onClick={deleteSelected}
             className="text-red-500  bg-gray-200 p-2 rounded-lg flex items-center gap-2 justify-center  w-8/12 lg:w-4/12"
